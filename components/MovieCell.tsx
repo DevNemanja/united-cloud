@@ -48,10 +48,10 @@ export default function MovieCell({
       ref={cellRef}
       style={{
         ...style,
-        left: style.left as number,
-        top: style.top as number,
-        width: style.width as number,
-        height: style.height as number,
+        left: style.left,
+        top: style.top,
+        width: style.width,
+        height: style.height,
         display: 'flex',
         justifyContent: 'center',
       }}
