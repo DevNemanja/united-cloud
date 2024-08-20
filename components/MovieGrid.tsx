@@ -19,7 +19,7 @@ export default function MovieGrid({ data }: MovieGridProps) {
     numOfCols: 1,
   });
 
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState<number>(-1);
   const [showActive, setShowActive] = useState(false);
 
   const handleNavigation = (direction: 'left' | 'right') => {
