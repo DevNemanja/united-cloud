@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import Logo from '@/assets/UC-logo.svg';
+import { IMovieResponse } from '@/types/movies';
+import { getMovies } from '@/services/movies';
 
-export default function Home() {
+export default async function Home() {
+  const data: IMovieResponse = await getMovies();
+
   return (
     <div className='bg-slate-950 text-white'>
       <div className='flex gap-4 justify-center'>
@@ -10,7 +14,9 @@ export default function Home() {
           United Cloud Movie Database
         </h1>
       </div>
-      <p>MOVIE GRID</p>
+      {data.movies.map((movie) => (
+        <p key={movie.id}>{movie.title}</p>
+      ))}
     </div>
   );
 }
