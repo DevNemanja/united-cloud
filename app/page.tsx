@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Logo from '@/assets/UC-logo.svg';
 import { IMovieResponse } from '@/types/movies';
 import { getMovies } from '@/services/movies';
+import MovieGrid from '@/components/MovieGrid';
 
 export default async function Home() {
   const data: IMovieResponse = await getMovies();
@@ -14,9 +15,7 @@ export default async function Home() {
           United Cloud Movie Database
         </h1>
       </div>
-      {data.movies.map((movie) => (
-        <p key={movie.id}>{movie.title}</p>
-      ))}
+      <MovieGrid data={data} />
     </div>
   );
 }
